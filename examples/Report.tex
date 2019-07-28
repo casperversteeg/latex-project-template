@@ -1,0 +1,43 @@
+\documentclass[onehalfspace]{Report}
+
+\title{Phase Field Fracture in 1D}				% Title
+\date{\today}				% Date
+\newcommand{\theauthor}{Casper Versteeg}
+\newcommand{\course}{ME 524: Finite Element Method} % Course number
+
+\begin{document}
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+    \includegraphics[height=2.5in, trim = {1350px 0 0 0}, clip]{images/Color-Duke-University-logo.jpg}\\[1.0 cm]	% University Logo
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \Huge \bfseries }
+	\rule{\linewidth}{0.2 mm} \\[1cm]
+	\textsc{\LARGE \course}\\[0.3 cm]				% Course Code
+	\textsc{\Large Duke University}\\[0.3 cm]	% University Name
+	\textsc{\large}\\[1.0cm]
+
+\vspace{0.5in}
+\noindent \centering \begin{tabular}{c}
+\makebox[2.5in]{\hrulefill}\\
+{\Large \theauthor}\\[0.1cm]
+{Mechanical Engineering}\\
+\end{tabular}
+\vspace{1in}
+\end{titlepage}
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Abstract}\addcontentsline{toc}{section}{Abstract}
+To validate the gradient damage results by Zhao \cite{ZhaoThesis}, this report implements an elastodynamic phase-field model for fracture. The 1D problem models a bar of two perfectly bonded materials to partially reflect an incident compression wave, and cause fracture near the center of the first section. The implementation is shown to converge by conventional standards, and the report presents a detailed overview of the approach. The problem solved here is only meant to show qualitative agreement with the Zhao results, and achieves this to a reasonable extent. \\
+\\
+The body of this report contains the analysis work done for the problem originally proposed. Primary figures are included in the main body, whereas secondary, as well as large figures are in Section \ref{sec:tabfig}. These are either to supplement conclusions, or to reduce the space inhabited by figures in the main body. This work will often refer to appendices for derivations or lengthy calculations. These are also meant to be supplementary, and the main report will take relevant conclusions from the appendix, and regard them as fact. The appendices will be largely based on one or two citations that will be mentioned at the beginning, as not to clutter the appendix section with the same citation.
+
+
+\pagebreak
+\section{Problem Description}
+The problem researched here was described in the PhD thesis by Zhao \cite{ZhaoThesis}; it involves a one-dimensional bar made of two perfectly bonded materials. The sections' respective material properties were chosen by Zhao to induce fracture approximately at the center of the bar under direct pressure (bar $A$), as shown in Figure \ref{fig:problemdiagram}. Some preliminary calculations will be presented in the Background section. All model parameters are tabulated in Section \ref{sec:tabfig}.
+
+
+\end{document}

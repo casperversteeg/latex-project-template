@@ -1,0 +1,17 @@
+\standalonepreambles
+\subpreamble{sections/titlepage.tex}
+\makeatletter \let \thetitle \@title\makeatother 
+\endsubpreamble
+\subpreamble{sections/revisions.tex}
+
+\endsubpreamble
+\subpreamble{sections/abstract.tex}
+
+\endsubpreamble
+\subpreamble{sections/introduction/introduction.tex}
+
+\endsubpreamble
+\subpreamble{sections/appendix/math_prelims.tex}
+
+\endsubpreamble
+\endstandalonepreambles

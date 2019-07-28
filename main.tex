@@ -1,0 +1,38 @@
+\documentclass[onehalfspace]{Report}
+
+\title{Title}				% Title
+\date{\today}				% Date
+\newcommand{\theauthor}{Casper Versteeg}
+\newcommand{\course}{course number} % Course number
+\newcommand{\versionNumber}{Version number} % version number
+
+% \addbibresource{./bibliography/References.bib}
+
+\begin{document}
+\begin{singlespace}
+\input{sections/titlepage}
+
+\tableofcontents
+\end{singlespace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sections/revisions}
+
+\input{sections/abstract}
+
+\pagebreak
+\input{sections/introduction/introduction}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+
+\begin{appendices}
+
+\input{sections/appendix/math_prelims}
+
+\end{appendices}
+
+\end{document}
