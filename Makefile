@@ -14,39 +14,45 @@
 # target: dependencies
 #		action
 
+# Defining path variables
 MAIN=main
 BUILD_DIR=build
 PACK_DIR=packages
 BIB_DIR=bibliography
-# SOURCES:=$(MAIN).tex Makefile $(BIB_DIR)/*.bib # yourothertexfiles
-# FIGURES:=$(shell find figures/* images/* -type f)
+# Tell the compiler which folder to find packages and classes in so the paths
+# match in declaration
 export TEXINPUTS:=.:./$(PACK_DIR):~/$(PACK_DIR):${TEXINPUTS}
 
 LATEX_OPTS=-interaction=nonstopmode -shell-escape -aux-directory=$(BUILD_DIR)
 
-# type `make` to run this:
+# type `make` to generate pdf of main.tex:
 all: $(MAIN).pdf
 
 .PHONY: clean
 
-# type `make clean` to run this:
+# type `make clean` to clear all build files
 clean:
-	rm -rf $(BUILD_DIR)/* *.blg *.out *.bbl *.log *.ind *.ilg *.lot *.lof *.ind *.idx *.aux *.toc
+	rm -rf $(BUILD_DIR)/* *.blg *.out *.bbl *.log *.ind *.ilg *.lot *.lof *.ind\
+	 *.idx *.aux *.toc
 
+# also removes all back-up and pdf files
 superclean:
 	make clean
+	rm $(PACK_DIR)/*.bak
 	rm *.pdf
 
+# if making an index, run this after `make`. Have not personally tested or used this
 index: $(MAIN).pdf
 	makeindex $(BUILD_DIR)/$(MAIN)
 
-
+# run `make bib` after `make` to generate bibliography with biblatex
 bib: $(MAIN).pdf
 	biber $(MAIN).bbl
 	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
 	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
 	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
 
+# Can force make if main.tex is not edited, but any sub-files are:
 force:
 	touch $(MAIN).tex
 	make
@@ -58,6 +64,7 @@ verbose: *.tex $(BIB_DIR)/*.bib $(PACK_DIR)/*.sty
 	pdflatex $(LATEX_OPTS) $(MAIN).tex
 
 # will be invoked everywhere there is a `target: $(MAIN).pdf` (i.e. a dependency)
+# running pdflatex 3 times to make sure all references in the document are resolved
 $(MAIN).pdf: *.tex $(BIB_DIR)/*.bib $(PACK_DIR)/*.sty
 	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
 	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
