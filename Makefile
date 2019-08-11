@@ -19,6 +19,7 @@ MAIN=main
 BUILD_DIR=build
 PACK_DIR=packages
 BIB_DIR=bibliography
+SECTIONS= $(wildcard sections/*.tex) $(wildcard sections/*/*.tex) $(wildcard sections/*/*/*.tex)
 # Tell the compiler which folder to find packages and classes in so the paths
 # match in declaration
 export TEXINPUTS:=.:./$(PACK_DIR):~/$(PACK_DIR):${TEXINPUTS}
@@ -63,9 +64,12 @@ verbose: *.tex $(BIB_DIR)/*.bib $(PACK_DIR)/*.sty
 	pdflatex $(LATEX_OPTS) $(MAIN).tex
 	pdflatex $(LATEX_OPTS) $(MAIN).tex
 
+continuous: $(MAIN).pdf
+	while true; do make; sleep 1; done
+
 # will be invoked everywhere there is a `target: $(MAIN).pdf` (i.e. a dependency)
 # running pdflatex 3 times to make sure all references in the document are resolved
-$(MAIN).pdf: *.tex $(BIB_DIR)/*.bib $(PACK_DIR)/*.sty
+$(MAIN).pdf: $(SECTIONS) *.tex $(BIB_DIR)/*.bib $(PACK_DIR)/*.sty
 	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
 	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
 	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
