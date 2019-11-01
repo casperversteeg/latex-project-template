@@ -1,38 +1,38 @@
-\documentclass[onehalfspace]{Report}
+\documentclass[singlespace]{Presentation}
 
-\title{Title}				% Title
-\date{\today}				% Date
-\newcommand{\theauthor}{Author Name}
-\newcommand{\course}{Course Number} % Course number
-\newcommand{\versionNumber}{Version number} % version number
+\addbibresource{./bibliography/References.bib}
 
-% \addbibresource{./bibliography/References.bib}
+\subtitle{}
+\institute[Duke University]{Mechanical Engineering \\Duke University }
+\titlegraphic{\includegraphics[height=1in, trim = {1350px 0 0 0}, clip]{images/Color-Duke-University-logo.jpg}}
+
+\author{Presenter Name}
+\small\date{\today}
+\title{Title}
 
 \begin{document}
-\begin{singlespace}
-\input{sections/titlepage}
+\maketitle
 
+\begin{frame}<beamer>
+\frametitle{}
 \tableofcontents
-\end{singlespace}
+\end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{sections/revisions}
+\section{Section Name}
+\begin{frame}{Slide Name 1}
+\end{frame}
 
-\input{sections/abstract}
+\begin{frame}{Slide Name 2}
+\end{frame}
 
-\pagebreak
-\input{sections/introduction/introduction}
+\section{References}
+\begin{frame}[allowframebreaks]{References}
+  \nocite{*}
+  \printbibliography
+\end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-\section*{Appendices}
-\addcontentsline{toc}{section}{Appendices}
-
-\begin{appendices}
-
-\input{sections/appendix/math_prelims}
-
-\end{appendices}
+\begin{frame}{}
+\centerline{\Huge FIN}
+\end{frame}
 
 \end{document}

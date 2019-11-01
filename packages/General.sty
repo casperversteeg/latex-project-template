@@ -5,11 +5,10 @@
 \RequirePackage[utf8]{inputenc}   % encoder parsing
 \RequirePackage{calc}             % arithmetic operations to dimensioning
 \RequirePackage{microtype}        % improves typesetting
-\RequirePackage{enumitem}         % for changing enumerate style
 \RequirePackage{setspace}         % gives more line-spacing environments
-% \RequirePackage[symbol*]{footmisc}% different footnote labeling
+\RequirePackage[symbol*]{footmisc}% different footnote labeling
 \RequirePackage[titletoc]{appendix}% adds appendix to table of contents
-\RequirePackage[hyphens]{url}     % formatting urls
+% \RequirePackage[hyphens]{url}     % formatting urls
 \RequirePackage{hyperref}
 \RequirePackage{multicol}         % multiple columns in text
 \RequirePackage{multirow}         % text spans multiple rows
@@ -23,10 +22,8 @@
 \RequirePackage{lettrine}         % dropped capitals across multiple lines
 \RequirePackage{cprotect}         % allows verbatim in argument for other envs
 \RequirePackage[subpreambles=true]{standalone}% adds modularity
-% \RequirePackage{import}           % for importing other documents
 \RequirePackage{subfiles}
 \RequirePackage{fancyhdr}         % much nicer header styling
-\RequirePackage[explicit]{titlesec} % gives access to \theauthor etc.
 \RequirePackage{dirtree}          % directory tree listings
 
 % math
@@ -64,10 +61,6 @@
 \renewcommand{\arraystretch}{1.2}
 \setlength\LTleft{0pt} % for longtable
 
-% list item formatting types
-\setlist{labelindent=\parindent,leftmargin=*,nosep}
-\setlist[enumerate]{label={\arabic*)}}
-
 % formatting quotes
 \RequirePackage[indentfirst=false,font+=small,leftmargin=0.4in,rightmargin=0pt,vskip=0pt] {quoting}
 
@@ -87,8 +80,7 @@
 
 % more TikZ stuff
 \usetikzlibrary{circuits,shapes, arrows, positioning, arrows.meta, matrix, decorations.pathreplacing, shadings}
-\tikzstyle{block} = [draw, rectangle,
-    minimum height=3em, minimum width=6em]
+\tikzstyle{block} = [draw, rectangle, minimum height=3em, minimum width=6em]
 \tikzstyle{sum} = [draw, circle, node distance=1cm]
 \tikzstyle{input} = [coordinate]
 \tikzstyle{output} = [coordinate]
@@ -96,7 +88,7 @@
 \tikzumlset{font=\footnotesize\ttfamily}
 
 %%%%% General formatting additions %%%%%
-\newcommand{\qed}{\hfill\blacksquare}           % QED square
+% \newcommand{\qed}{\hfill\blacksquare}           % QED square
 \renewcommand{\d}{\mathrm{d}}                     % differential d not itallic
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}  % quick norm operator
 

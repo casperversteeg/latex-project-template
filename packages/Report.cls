@@ -1,4 +1,4 @@
-\ProvidesClass{Report}[2018/11/27, v1.0]
+\ProvidesClass{Report}[2019/08/27, v1.1]
 % Baseline document formatting
 \newif\if@singlespace
 \newif\if@onehalfspace
@@ -21,6 +21,7 @@
 \fi
 
 % Title page
+\RequirePackage[explicit]{titlesec} % gives access to \theauthor etc.
 \RequirePackage[blocks]{authblk}                % Adds author name and affil
 \renewcommand{\Authfont}{\normalsize\upshape}
 \renewcommand{\Affilfont}{\normalsize\itshape}
@@ -42,3 +43,9 @@
 \setlength{\belowdisplayskip}{\baselineskip}
 \setlength{\abovedisplayshortskip}{\baselineskip}
 \setlength{\belowdisplayshortskip}{\baselineskip}
+
+%Formatting lists
+\RequirePackage{enumitem}
+% list item formatting types
+\setlist{labelindent=\parindent,leftmargin=*,nosep}
+\setlist[enumerate]{label={\arabic*)}}
