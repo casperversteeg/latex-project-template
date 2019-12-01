@@ -48,10 +48,8 @@ index: $(MAIN).pdf
 
 # run `make bib` after `make` to generate bibliography with biblatex
 bib: $(MAIN).pdf
-	biber $(MAIN).bbl
-	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
-	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
-	pdflatex $(LATEX_OPTS) -quiet $(MAIN).tex
+	biber --output-directory=$(BUILD_DIR) $(MAIN)
+	make force
 
 # Can force make if main.tex is not edited, but any sub-files are:
 force:
