@@ -39,8 +39,8 @@ clean:
 # also removes all back-up and pdf files
 superclean:
 	make clean
-	rm $(PACK_DIR)/*.bak
-	rm *.pdf
+	rm -rf $(PACK_DIR)/*.bak
+	rm -rf *.pdf
 
 # if making an index, run this after `make`. Have not personally tested or used this
 index: $(MAIN).pdf

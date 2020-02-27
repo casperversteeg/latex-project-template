@@ -22,6 +22,7 @@
 % theme to use with templates:
 \usetheme{Antibes}
 \usefonttheme{serif}
+\setbeamertemplate{caption}[numbered]
 \setbeamertemplate{navigation symbols}{%
 %	insertslidenavigationsymbol%
 %	insertframenavigationsymbol%
