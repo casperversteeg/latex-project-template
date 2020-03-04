@@ -1,38 +1,58 @@
-\documentclass[singlespace]{Presentation}
+\documentclass[onehalfspace]{Report}
 
-\addbibresource{./bibliography/References.bib}
+\title{Title}				% Title
+\date{\today}				% Date
+\newcommand{\theauthor}{Author Name}
+\newcommand{\course}{Course Number} % Course number
+\newcommand{\versionNumber}{Version number} % version number
 
-\subtitle{}
-\institute[Duke University]{Mechanical Engineering \\Duke University }
-\titlegraphic{\includegraphics[height=1in, trim = {1350px 0 0 0}, clip]{images/Color-Duke-University-logo.jpg}}
-
-\author{Presenter Name}
-\small\date{\today}
-\title{Title}
+% \addbibresource{./bibliography/References.bib}
 
 \begin{document}
-\maketitle
+\begin{singlespace}
+\input{sections/titlepage}
 
-\begin{frame}<beamer>
-\frametitle{}
 \tableofcontents
-\end{frame}
+\end{singlespace}
 
-\section{Section Name}
-\begin{frame}{Slide Name 1}
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sections/revisions}
 
-\begin{frame}{Slide Name 2}
-\end{frame}
+\input{sections/abstract}
 
-\section{References}
-\begin{frame}[allowframebreaks]{References}
-  \nocite{*}
-  \printbibliography
-\end{frame}
+\pagebreak
+\input{sections/introduction/introduction}
 
-\begin{frame}{}
-\centerline{\Huge FIN}
-\end{frame}
+\begin{definition}{lenghts}{len}
+\lipsum[1]
+\end{definition}
+
+\begin{theorem}{Pythagorean Theorem}{pyth}
+\label{pythagorean}
+This is a theorem about right triangles and can be summarised in the next
+equation
+\[ x^2 + y^2 = z^2 \]
+\tcblower
+ To prove it by contradiction try and assume that the statement is false, proceed from there and at some point you will arrive to a contradiction. Hence \[ a^2 = b^2 + c^2. \]%
+\end{theorem}
+
+\begin{example}{}{}
+\lipsum[1]
+\end{example}
+
+\begin{exercise}{}{}
+  \lipsum[2]
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+
+\begin{appendices}
+
+\input{sections/appendix/math_prelims}
+
+\end{appendices}
 
 \end{document}

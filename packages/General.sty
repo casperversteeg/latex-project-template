@@ -25,11 +25,14 @@
 \RequirePackage{subfiles}
 \RequirePackage{fancyhdr}         % much nicer header styling
 \RequirePackage{dirtree}          % directory tree listings
+\RequirePackage[many]{tcolorbox}  % box shading and titling
 
 % math
 \RequirePackage{amsmath, amssymb, bm} % AMS math extensions
 \RequirePackage{mathtools}        % more math symbols and environments
 \RequirePackage{nicematrix}       % better matrix environments
+\RequirePackage{framed}           % ntheorem dependency
+\RequirePackage[amsmath, framed, thmmarks]{ntheorem} % better theorem typesetting
 
 % graphics
 \RequirePackage{graphicx}         % include graphics in document
@@ -121,6 +124,13 @@
 \definecolor{backcolor}{rgb}{0.99,0.99,0.96} % code background color
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
+\definecolor{Gainsboro}{rgb}{0.86, 0.86, 0.86}
+\definecolor{Lavender}{rgb}{0.9, 0.9, 0.98}
+
+\colorlet{Theoremcolor}{Gainsboro!50!Lavender}
+\colorlet{Examplecolor}{green!10}
+\colorlet{Definitioncolor}{blue!10}
+\colorlet{Exercisecolor}{orange!10}
 
 % minted settings
 \setminted{
@@ -134,3 +144,38 @@
   samepage=false, % do not force the list to appear on the same page
   breaklines=true, fontsize=\small
 }
+
+\newlength{\lblThrmWidth}
+\setlength{\lblThrmWidth}{\widthof{\textbf{Theorem~}}}
+\addtolength{\lblThrmWidth}{1mm}
+\newlength{\lblExWidth}
+\setlength{\lblExWidth}{\widthof{\textbf{Example~}}}
+\addtolength{\lblExWidth}{1mm}
+\newlength{\lblDefnWidth}
+\setlength{\lblDefnWidth}{\widthof{\textbf{Definition~}}}
+\addtolength{\lblThrmWidth}{1mm}
+\newlength{\lblExercWidth}
+\setlength{\lblExercWidth}{\widthof{\textbf{Exercise~}}}
+\addtolength{\lblExercWidth}{1mm}
+
+\tcbset{%
+    cboxes/.style={%
+        enhanced, breakable, sharp corners,
+        fonttitle=\bfseries, description font=\mdseries\itshape,
+        colback=#1color, colbacktitle=#1color,
+        titlerule=1mm, titlerule style=#1color,
+        boxrule=0pt, coltitle=black, frame hidden,
+        toptitle=2mm, lefttitle=2mm,
+        boxsep=1mm, top=0mm,
+        description delimiters parenthesis,
+        terminator sign none,
+    }
+}
+
+\newtcbtheorem[auto counter, number within=section]{theorem}{Theorem}{ cboxes=Theorem,fontupper=\itshape, leftupper=\lblThrmWidth, before lower=\textit{Proof}:~}{thm}
+
+\newtcbtheorem[auto counter, number within=section]{example}{Example}{ cboxes=Example, leftupper=\lblExWidth}{ex}
+
+\newtcbtheorem[auto counter, number within=section]{definition}{Definition}{ cboxes=Definition, leftupper=\lblDefnWidth, before lower=\textit{Solution}:~}{def}
+
+\newtcbtheorem[auto counter, number within=section]{exercise}{Exercise}{ cboxes=Exercise, leftupper=\lblExercWidth}{exec}
