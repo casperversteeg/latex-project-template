@@ -33,6 +33,8 @@
 \RequirePackage{nicematrix}       % better matrix environments
 \RequirePackage{framed}           % ntheorem dependency
 \RequirePackage[amsmath, framed, thmmarks]{ntheorem} % better theorem typesetting
+\RequirePackage{xfrac}            % use sfrac for slated fraction typesetting
+\RequirePackage{stmaryrd}         % Some extra brackets
 
 % graphics
 \RequirePackage{graphicx}         % include graphics in document
@@ -174,8 +176,8 @@
 
 \newtcbtheorem[auto counter, number within=section]{theorem}{Theorem}{ cboxes=Theorem,fontupper=\itshape, leftupper=\lblThrmWidth, before lower=\textit{Proof}:~}{thm}
 
-\newtcbtheorem[auto counter, number within=section]{example}{Example}{ cboxes=Example, leftupper=\lblExWidth}{ex}
+\newtcbtheorem[auto counter, number within=section]{example}{Example}{ cboxes=Example, leftupper=\lblExWidth, before lower=\textit{Solution}:~}{ex}
 
-\newtcbtheorem[auto counter, number within=section]{definition}{Definition}{ cboxes=Definition, leftupper=\lblDefnWidth, before lower=\textit{Solution}:~}{def}
+\newtcbtheorem[auto counter, number within=section]{definition}{Definition}{ cboxes=Definition, leftupper=\lblDefnWidth}{def}
 
 \newtcbtheorem[auto counter, number within=section]{exercise}{Exercise}{ cboxes=Exercise, leftupper=\lblExercWidth}{exec}

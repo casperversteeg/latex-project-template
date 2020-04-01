@@ -24,7 +24,7 @@ SECTIONS= $(wildcard sections/*.tex) $(wildcard sections/*/*.tex) $(wildcard sec
 # match in declaration
 export TEXINPUTS:=.:./$(PACK_DIR):~/$(PACK_DIR):${TEXINPUTS}
 
-LATEX_OPTS=-interaction=nonstopmode -shell-escape -aux-directory=$(BUILD_DIR)
+LATEX_OPTS=-interaction=nonstopmode -shell-escape -aux-directory=$(BUILD_DIR) --synctex=1
 
 # type `make` to generate pdf of main.tex:
 all: $(MAIN).pdf
