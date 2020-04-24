@@ -33,8 +33,6 @@
 \RequirePackage{nicematrix}       % better matrix environments
 \RequirePackage{framed}           % ntheorem dependency
 \RequirePackage[amsmath, framed, thmmarks]{ntheorem} % better theorem typesetting
-\RequirePackage{xfrac}            % use sfrac for slated fraction typesetting
-\RequirePackage{stmaryrd}         % Some extra brackets
 
 % graphics
 \RequirePackage{graphicx}         % include graphics in document
@@ -97,7 +95,7 @@
 
 %%%%% General formatting additions %%%%%
 % \newcommand{\qed}{\hfill\blacksquare}           % QED square
-\renewcommand{\d}{\mathrm{d}}                     % differential d not itallic
+\renewcommand{\d}{\,\mathrm{d}}                     % differential d not itallic
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}  % quick norm operator
 
 \makeatletter
@@ -122,7 +120,14 @@
 
 \renewcommand{\thefootnote}{\arabic{footnote}}    % arabic num for footnotes
 
-\definecolor{DukeBlue}{rgb}{0,26,87}
+\newcommand{\compresslist}{ % Define a command to reduce spacing within itemize/enumerate environments, this is used right after \begin{itemize} or \begin{enumerate}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+}
+
+
+\definecolor{DukeBlue}{HTML}{012169}
 \definecolor{backcolor}{rgb}{0.99,0.99,0.96} % code background color
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
@@ -176,8 +181,8 @@
 
 \newtcbtheorem[auto counter, number within=section]{theorem}{Theorem}{ cboxes=Theorem,fontupper=\itshape, leftupper=\lblThrmWidth, before lower=\textit{Proof}:~}{thm}
 
-\newtcbtheorem[auto counter, number within=section]{example}{Example}{ cboxes=Example, leftupper=\lblExWidth, before lower=\textit{Solution}:~}{ex}
+\newtcbtheorem[auto counter, number within=section]{example}{Example}{ cboxes=Example, leftupper=\lblExWidth}{ex}
 
-\newtcbtheorem[auto counter, number within=section]{definition}{Definition}{ cboxes=Definition, leftupper=\lblDefnWidth}{def}
+\newtcbtheorem[auto counter, number within=section]{definition}{Definition}{ cboxes=Definition, leftupper=\lblDefnWidth, before lower=\textit{Solution}:~}{def}
 
 \newtcbtheorem[auto counter, number within=section]{exercise}{Exercise}{ cboxes=Exercise, leftupper=\lblExercWidth}{exec}

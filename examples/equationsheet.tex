@@ -1,0 +1,187 @@
+\documentclass[landscape,paperwidth=1920pt, paperheight = 1080pt,fontscale=0.45,columns=3, margin = 0px]{Poster} % Adjust the font scale/size here
+\setlength{\columnsep}{0em} % Slightly increase the space between columns
+\setlength{\columnseprule}{0mm} % No horizontal rule between columns
+
+
+% \definecolor{DukeBlue}{HTML}{012169} % Defines the color used for content box headers
+\definecolor{blueish}{HTML}{e8f4f5}
+
+\begin{document}
+
+\begin{poster}
+{
+% grid=yes,
+headerborder=none, % Adds a border around the header of content boxes
+colspacing=1px, % Column spacing
+background = shadeTB,
+bgColorOne=DukeBlue, % Background color for the gradient on the left side of the poster
+bgColorTwo=black, % Background color for the gradient on the right side of the poster
+% borderColor=plain, % Border color
+% headerColorOne=plain, % Background color for the header in the content boxes (left side)
+% headerColorTwo=none, % Background color for the header in the content boxes (right side)
+boxshade=none,
+headerFontColor=white, % Text color for the header text in the content boxes
+boxColorOne=black, % Background color of the content boxes
+textborder=none, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+eyecatcher=true, % Set to false for ignoring the left logo in the title and move the title left
+headerheight=0\textheight, % Height of the header
+%headershape=roundedright, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+% headerfont=\Large\bf\textsc, % Large, bold and sans serif font in the headers of content boxes
+textfont={\color{white}}, % Uncomment for paragraph indentation
+% linewidth=0pt, % Width of the border lines around content boxes
+columns = 3,
+}
+%-------------------------------------------------------------------------------
+%	TITLE SECTION
+%-------------------------------------------------------------------------------
+%
+{}{}{}{}
+
+%-------------------------------------------------------------------------------
+%	INTRODUCTION
+%-------------------------------------------------------------------------------
+
+\headerbox{}{name=col1,column=0,row=0,boxheaderheight = 0px}{
+
+\begin{align*}
+  & \tag{Divergence Theorem}
+  \begin{array}{c}
+    \displaystyle\int_{\partial\Omega} \mathbf{F}\cdot \mathbf{\hat{n}} \d \partial\Omega = \int_\Omega \nabla \cdot \mathbf{F} \d \Omega
+  \end{array}\\
+  & \tag{IBP}
+  \begin{array}{c}
+    \displaystyle\int_\Omega \mathbf{F}\cdot \nabla \varphi \d \Omega = \int_{\partial\Omega} \varphi (\mathbf{F}\cdot \mathbf{\hat{n}}) \d \partial\Omega - \int_\Omega \varphi (\nabla \cdot \mathbf{F})\d \Omega \\
+    \displaystyle\int_\Omega \varphi (\nabla \cdot \mathbf{F}) \d \Omega = \int_{\partial\Omega} \varphi (\mathbf{F}\cdot \mathbf{\hat{n}}) \d \partial\Omega - \int_\Omega \nabla \varphi \cdot \mathbf{F}\d \Omega
+  \end{array}\\
+  & \tag{Div of Curl}
+  \begin{array}{c}
+    \nabla \cdot (\nabla \times \mathbf{F}) = 0
+  \end{array}\\
+  & \tag{Curl of Grad}
+  \begin{array}{c}
+    \nabla \times (\nabla \varphi) = \mathbf{0}
+  \end{array}\\
+  & \tag{Laplacian}
+  \begin{array}{c}
+    \nabla^2 \varphi = \nabla \cdot (\nabla\varphi) \\
+    \nabla^2 \mathbf{F} = \nabla(\nabla\cdot \mathbf{F}) - \nabla \times (\nabla\times \mathbf{F})
+  \end{array}
+\end{align*}
+
+
+\begin{align*}
+  & \tag{Fourier}
+  \begin{array}{c}
+    \displaystyle\mathcal{F}(f(t)) = \int_{\infty}^\infty f(t) e^{-2\pi i \omega t}\d t\\
+    \displaystyle\mathcal{F}^{-1}(\hat{f}(\omega)) = \int_{\infty}^{\infty} \hat{f}(\omega)e^{2\pi i \omega t}\d \omega
+  \end{array}\\
+  & \tag{$\mathcal{F}$-series}
+  f(x) = \sum_{n=0}^\infty a_n \cos\left(\frac{2n\pi x}{T}\right) + b_n \sin\left(\frac{2n\pi x}{T}\right)\\
+  & \tag{$\mathcal{F}$-coeffs}
+  \begin{array}{c}
+    a_n = \frac{2}{T}\int_{-T}^T f(x)\cos\left(\frac{2n\pi x}{P}\right)\d x\\
+    b_n = \frac{2}{T}\int_{-T}^T f(x)\sin\left(\frac{2n\pi x}{P}\right)\d x
+  \end{array}
+\end{align*}
+
+Decimal expansions:
+\begin{align*}
+  \pi &\approx 3.1416... & \frac{\pi}{2} &\approx 1.5707... & \frac{\pi}{3} &\approx 1.0472 & \frac{\pi}{4} &\approx 0.7854...\\[0.5em]
+  \pi^{-2}&\approx 0.1013...&\pi^{-1} &\approx 0.3183...&\pi^2 &\approx 9.8696...& \pi^4&\approx 7.3891...\\[0.5em]
+  e^{-2}&\approx 0.1353...&e^{-1} &\approx 0.3679...&e^1 &\approx 2.7183...& e^2&\approx 97.4901...\\[0.5em]
+  \frac{\sqrt{2}}{2} &\approx 0.7071... & \sqrt{2} &\approx 1.4142... & \sqrt{3}&\approx 1.7321... & \frac{\sqrt{3}}{2} &\approx 0.8660...
+\end{align*}\vspace{-1.5em}
+\begin{align*}
+  \ln\left(\frac{1}{2}\right) &\approx -0.6931... & \ln(1) &= 0 &\ln(2) &\approx 0.6931... && \\[0.5em]
+  \log\left(\frac{1}{2}\right) &\approx -0.3010... & \log(1) &= 0 &\log(2) &\approx 0.3010... && \\
+\end{align*}
+
+%\vspace{1em} % When there are two boxes, some whitespace may need to be added if the one on the right has more content
+}
+
+
+
+\headerbox{}{name = col2, column = 1, row = 0,boxheaderheight = 0px}{
+\begin{center}
+\includestandalone[width=0.9\textwidth]{examples/unitcircle}
+\end{center}
+
+\begin{align*}
+  & \tag{$\angle$ sum/diff}
+  \begin{array}{c}
+    \sin(\alpha \pm \beta) = \sin(\alpha)\cos(\beta)\pm \cos(\alpha)\sin(\beta)\\
+    \cos(\alpha\pm\beta) = \cos(\alpha)\cos(\beta)\mp \sin(\alpha)\sin(\beta)
+  \end{array}\\
+  & \tag{double $\angle$}
+  \begin{array}{c}
+    \sin(2\theta) = 2\sin(\theta)\cos(\theta)\\
+    \cos(2\theta) = 2\cos^2(\theta)-1
+  \end{array}\\
+  & \tag{half $\angle$}
+  \begin{array}{c}
+    \sin^2\left(\dfrac{\theta}{2}\right) = \dfrac{1-\cos(\theta)}{2}\\
+    \cos^2\left(\dfrac{\theta}{2}\right) = \dfrac{1+\cos(\theta)}{2}
+  \end{array}\\
+  & \tag{prod$\rightarrow$sum}
+  \begin{array}{c}
+    2\cos(\theta)\cos(\varphi) = \cos(\theta -\varphi)+\cos(\theta + \varphi)\\
+    2\sin(\theta)\sin(\varphi) = \cos(\theta -\varphi)-\cos(\theta + \varphi)\\
+    2\sin(\theta)\cos(\varphi) = \sin(\theta +\varphi)+\sin(\theta - \varphi)\\
+    2\cos(\theta)\sin(\varphi) = \cos(\theta -\varphi)-\sin(\theta - \varphi)
+  \end{array}
+\end{align*}
+}
+
+\headerbox{}{name = col3, column=2,row = 0,boxheaderheight = 0px}{
+\begin{align*}
+  & \tag{sum$\rightarrow$prod}
+  \small\begin{array}{c}
+    \sin(\theta) \pm \sin(\varphi) = 2\sin\left(\dfrac{\theta\pm\varphi}{2}\right)\cos\left(\dfrac{\theta\mp\varphi}{2}\right)\\
+    \cos(\theta) + \cos(\varphi) = 2\cos\left(\dfrac{\theta+\varphi}{2}\right)\cos\left(\dfrac{\theta-\varphi}{2}\right)\\
+    \cos(\theta) - \cos(\varphi) = -2\sin\left(\dfrac{\theta+\varphi}{2}\right)\sin\left(\dfrac{\theta-\varphi}{2}\right)
+  \end{array}
+\end{align*}
+
+\begin{align*}
+  & \tag{Blasius}
+  \frac{\d^3y}{\d x^3} + y\frac{\d^2y}{\d x^2}=0\\
+  & \tag{Rayleigh}
+  \frac{\d^2y}{\d x^2}+k\frac{\d y}{\d x}+m\left(\frac{\d y}{\d x}\right)^3+n^2y= 0\\
+  & \tag{Van der Pol}
+  \frac{\d ^2x}{\d t^2} -\mu(1-x^2)\frac{\d x}{\d t} + x=0\\
+  & \tag{Burgers}
+  \frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}=0\\
+  & \tag{Cauchy}
+  \rho\left(\frac{\partial \mathbf{u}}{\partial t} +\mathbf{u}\cdot \nabla\mathbf{u}\right) = \nabla \cdot \bm\sigma + \rho\mathbf{f}
+\end{align*}
+
+\begin{align*}
+  & \tag{Laplace}
+  \begin{array}{c}
+    \displaystyle\mathcal{L}(f(t)) = \int_0^\infty f(t) e^{-st}\d t\\
+    \displaystyle\mathcal{L}^{-1}(F(s)) = \dfrac{1}{2\pi i}\lim_{T\rightarrow\infty}\int_{\gamma-iT}^{\gamma+iT} e^{st}F(s)\d s
+  \end{array}
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+  \hline
+  $f(t) = \mathcal{L}^{-1}(F(s))$ & $F(s) = \mathcal{L}(f(t))$ \\ \hline
+  $\delta(t)$ & 1 \\ \hline
+  $\delta(t-\tau)$ & $e^{-\tau s}$ \\ \hline
+  $H(t)$ & $\frac{1}{s}$ \\ \hline
+  $H(t-\tau)$ & $\frac{1}{s}e^{-\tau s}$ \\ \hline
+  $tH(t)$ & $\frac{1}{s^2}$ \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{align*}
+  &\tag{Taylor}
+  f(x) = \sum_{n=0}^\infty \frac{f^(n)(a)}{n!}(x-a)^n
+\end{align*}
+}
+
+
+\end{poster}
+
+\end{document}
