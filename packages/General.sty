@@ -12,7 +12,7 @@
 \RequirePackage{hyperref}
 \RequirePackage{multicol}         % multiple columns in text
 \RequirePackage{multirow}         % text spans multiple rows
-\RequirePackage{lscape}           % allows for landscape pages
+\RequirePackage{pdflscape}           % allows for landscape pages
 \RequirePackage{lipsum}           % lorem ipsum
 \RequirePackage{tabu}             % better tables
 \RequirePackage{longtable,tabularx}% more table environments
@@ -26,6 +26,7 @@
 \RequirePackage{fancyhdr}         % much nicer header styling
 \RequirePackage{dirtree}          % directory tree listings
 \RequirePackage[many]{tcolorbox}  % box shading and titling
+\RequirePackage[edges]{forest}    % For drawing trees
 
 % math
 \RequirePackage{amsmath, amssymb, bm} % AMS math extensions
@@ -37,6 +38,7 @@
 % graphics
 \RequirePackage{graphicx}         % include graphics in document
 \RequirePackage{float}            % extend float capabilities
+\RequirePackage{wrapfig}
 \RequirePackage{dblfloatfix}      % for multi-column floats
 \RequirePackage[labelfont=bf, tableposition=top]{caption} % set caption props
 \RequirePackage{subcaption}       % subcaptions to subfigures
@@ -83,7 +85,8 @@
 
 
 % more TikZ stuff
-\usetikzlibrary{circuits,shapes, arrows, positioning, arrows.meta, matrix, decorations.pathreplacing, shadings}
+\usetikzlibrary{circuits,shapes, arrows, positioning, arrows.meta, matrix, decorations.pathreplacing, shadings, fit}
+
 
 \tikzstyle{block} = [draw, rectangle, minimum height=3em, minimum width=6em]
 

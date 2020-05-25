@@ -41,6 +41,7 @@ superclean:
 	make clean
 	rm -rf $(PACK_DIR)/*.bak
 	rm -rf *.pdf
+	rm -rf *.synctex.gz
 
 # if making an index, run this after `make`. Have not personally tested or used this
 index: $(MAIN).pdf
