@@ -34,6 +34,7 @@
 \RequirePackage{nicematrix}       % better matrix environments
 \RequirePackage{framed}           % ntheorem dependency
 \RequirePackage[amsmath, framed, thmmarks]{ntheorem} % better theorem typesetting
+\RequirePackage{cancel}           % provides calcelto for striking out terms in eq
 
 % graphics
 \RequirePackage{graphicx}         % include graphics in document
@@ -87,7 +88,6 @@
 % more TikZ stuff
 \usetikzlibrary{circuits,shapes, arrows, positioning, arrows.meta, matrix, decorations.pathreplacing, shadings, fit}
 
-
 \tikzstyle{block} = [draw, rectangle, minimum height=3em, minimum width=6em]
 
 \tikzstyle{sum} = [draw, circle, node distance=1cm]
@@ -95,6 +95,12 @@
 \tikzstyle{output} = [coordinate]
 \tikzstyle{pinstyle} = [pin edge={to-, thin,black}]
 \tikzumlset{font=\footnotesize\ttfamily}
+
+% Breaking long lines with squiggles
+\tikzset{ext/.pic={
+\path [fill=white] (-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw (-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}}
 
 %%%%% General formatting additions %%%%%
 % \newcommand{\qed}{\hfill\blacksquare}           % QED square
