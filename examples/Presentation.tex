@@ -1,38 +1,61 @@
 \documentclass[singlespace]{Presentation}
 
-\addbibresource{./bibliography/References.bib}
+% \addbibresource{./bibliography/References.bib}
 
-\subtitle{}
-\institute[Duke University]{Mechanical Engineering \\Duke University }
-\titlegraphic{\includegraphics[height=1in, trim = {1350px 0 0 0}, clip]{images/Color-Duke-University-logo.jpg}}
-
-\author{Presenter Name}
-\small\date{\today}
-\title{Title}
+\title{Title}				% Title
+\subtitle{}         % Subtitle
+\date{\today}				% Date
+\titlegraphic{\dukelogo{1in}} % Title graphic
+\author{Casper Versteeg}
+\institute[Duke University]{Pratt School of Engineering \\Duke University }
+\newcommand{\course}{Course Number} % Course number
+\newcommand{\versionNumber}{Version number} % version number
 
 \begin{document}
-\maketitle
+\begin{frame}[noframenumbering]
+  \titlepage
+\end{frame}
 
-\begin{frame}<beamer>
-\frametitle{}
-\tableofcontents
+\begin{frame}
+  \frametitle{Overview}
+  \tableofcontents
+\end{frame}
+
+\section{Section 1}
+\begin{frame}
+\frametitle{There Is No Largest Prime Number}
+\framesubtitle{The proof uses \textit{reductio ad absurdum}.}
+\begin{theorem*}{}{}
+There is no largest prime number.
+\end{theorem*}
+\framebreak
+\begin{enumerate}
+  \item<1-| alert@1> Suppose $p$ were the largest prime number.
+  \item<2-> Let $q$ be the product of the first $p$ numbers.
+  \item<3-> Then $q+1$ is not divisible by any of them.
+  \item<1-> But $q + 1$ is greater than $1$, thus divisible by some prime number not in the first $p$ numbers.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{A longer title}
+  \begin{itemize}
+    \item one\\
+    \item two\\
+  \end{itemize}
 \end{frame}
 
 \section{Section Name}
+\subsection{subsec}
 \begin{frame}{Slide Name 1}
 \end{frame}
 
 \begin{frame}{Slide Name 2}
 \end{frame}
-
+%
 \section{References}
 \begin{frame}[allowframebreaks]{References}
-  \nocite{*}
-  \printbibliography
-\end{frame}
-
-\begin{frame}{}
-\centerline{\Huge FIN}
+  % \nocite{*}
+  % \printbibliography
 \end{frame}
 
 \end{document}
