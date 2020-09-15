@@ -49,7 +49,7 @@
           \inserttitlegraphic\par
       }
       \vskip1.25em%
-      \begin{beamercolorbox}[sep=8pt,center]{title}
+      \begin{beamercolorbox}[sep=0pt,center]{title}
         \rule{\linewidth}{0.2 mm}\\ [0.2cm]%
         \usebeamerfont{title}\inserttitle\par%
           \ifx\insertsubtitle@empty%
@@ -147,5 +147,17 @@
 
 % section outline formatting
 \AtBeginSection[]{\begin{frame}\frametitle{Overview}\tableofcontents[currentsection]\end{frame}}
+
+% bibliography formatting for beamer
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamercolor*{bibliography entry author}{fg=black}
+\setbeamercolor*{bibliography entry location}{fg=black}
+\setbeamercolor*{bibliography entry note}{fg=black}
+\setbeamerfont{bibliography item}{size=\footnotesize}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize}
+\setbeamerfont{bibliography entry location}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
 
 \mode<all>

@@ -1,0 +1,13 @@
+# Don't include any build files/directories
+*.aux
+*.bcf
+*.log
+*.mw
+*.nav
+*.out
+*.run.xml
+*.snm
+*.sta
+*.toc
+*.synctex.gz
+build/*
