@@ -11,3 +11,4 @@
 *.toc
 *.synctex.gz
 build/*
+simplex*

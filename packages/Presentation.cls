@@ -3,9 +3,11 @@
 \newif\if@singlespace
 \newif\if@onehalfspace
 \newif\if@doublespace
+\newif\if@lite
 \DeclareOption{singlespace}{\@singlespacetrue}
 \DeclareOption{onehalfspace}{\@onehalfspacetrue}
 \DeclareOption{doublespace}{\@doublespacetrue}
+\DeclareOption{lite}{\@litetrue}
 \ExecuteOptions{}
 \ProcessOptions\relax
 % Load beamer class, without theorem environments
@@ -14,7 +16,11 @@
 \let\th@plain\relax
 \makeatother
 % Load General.sty
-\RequirePackage{General}
+\if@lite
+  \usepackage[lite]{General}
+\else
+  \usepackage{General}
+\fi
 \if@singlespace
 \fi
 \if@onehalfspace
@@ -23,6 +29,7 @@
 \if@doublespace
   \doublespacing
 \fi
+\RequirePackage{hyperref}
 
 \pgfplotsset{compat=1.17}
 
@@ -154,10 +161,10 @@
 \setbeamercolor*{bibliography entry author}{fg=black}
 \setbeamercolor*{bibliography entry location}{fg=black}
 \setbeamercolor*{bibliography entry note}{fg=black}
-\setbeamerfont{bibliography item}{size=\footnotesize}
-\setbeamerfont{bibliography entry author}{size=\footnotesize}
-\setbeamerfont{bibliography entry title}{size=\footnotesize}
-\setbeamerfont{bibliography entry location}{size=\footnotesize}
-\setbeamerfont{bibliography entry note}{size=\footnotesize}
+\setbeamerfont*{bibliography item}{size=\footnotesize}
+\setbeamerfont*{bibliography entry author}{size=\footnotesize}
+\setbeamerfont*{bibliography entry title}{size=\footnotesize}
+\setbeamerfont*{bibliography entry location}{size=\footnotesize}
+\setbeamerfont*{bibliography entry note}{size=\footnotesize}
 
 \mode<all>

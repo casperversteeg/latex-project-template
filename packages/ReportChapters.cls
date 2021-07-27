@@ -1,16 +1,26 @@
-\ProvidesClass{Report}[2019/08/27, v1.1]
+\ProvidesClass{ReportChapters}[2019/08/27, v1.1]
 % Baseline document formatting
 \newif\if@singlespace
 \newif\if@onehalfspace
 \newif\if@doublespace
+\newif\if@lite
 \DeclareOption{singlespace}{\@singlespacetrue}
 \DeclareOption{onehalfspace}{\@onehalfspacetrue}
 \DeclareOption{doublespace}{\@doublespacetrue}
+\DeclareOption{lite}{\@litetrue}
 \ExecuteOptions{}
 \ProcessOptions\relax
 \LoadClass[12pt]{report}
-\RequirePackage{General}
-\RequirePackage[letterpaper,margin=1in]{geometry}
+\RequirePackage[pdftex, pdfusetitle,
+				bookmarks, bookmarksnumbered,
+				colorlinks, linkcolor=black, citecolor=black,
+	         filecolor=black, urlcolor=black]
+				{hyperref}
+\if@lite
+  \usepackage[lite]{General}
+\else
+  \usepackage{General}
+\fi
 \if@singlespace
 \fi
 \if@onehalfspace
@@ -19,6 +29,7 @@
 \if@doublespace
   \doublespacing
 \fi
+\RequirePackage[letterpaper,margin=1in]{geometry}
 
 % Title page
 \RequirePackage[explicit]{titlesec} % gives access to \theauthor etc.

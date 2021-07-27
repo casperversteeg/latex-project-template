@@ -1,0 +1,55 @@
+\documentclass[MS, lite]{Thesis}
+%\documentclass[economy,twoside,bind]{dukedissertation}
+% Use the second for a single-spaced copy suitable for duplex printing
+% and binding.
+
+\addbibresource{./bibliography/References.bib}
+
+
+\author{[Your Name Here]}
+\title{[Your Title Here]}
+\supervisor{[Your Supervisor Here]}
+\department{[Your Department Here]} % Appears as Department of \department
+
+% Committee Members other than supervisor.  No more than five beyond the
+% supervisor allowed.
+\member{[Department Committee Member \#1]}
+\member{[Department Committee Member \#2]}
+\member{[External Committee Member]}
+%-----------------------------------------------------------------------------%
+
+
+\begin{document}
+\maketitle
+
+\input{chapters/abstract}
+
+\dedication{If you want to dedicate your thesis to anyone do so here}
+
+\tableofcontents % Automatically generated
+\listoftables	% If you have any tables, automatically generated
+\listoffigures	% If you have any figures, automatically generated
+
+\input{chapters/nomenclature} % List of Abbreviations. Start file with '\abbreviations'
+\input{chapters/acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{chapters/introduction/introduction}
+\input{chapters/ch2/ch2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{appendix}
+
+\input{chapters/appendix/math_prelims}
+
+\end{appendix}
+
+\cleardoublepage
+\normalbaselines %Fixes spacing of bibliography
+\addcontentsline{toc}{chapter}{Bibliography} %adds Bibliography to your table of contents
+\printbibliography
+
+% \input{sections/biography}
+
+\end{document}

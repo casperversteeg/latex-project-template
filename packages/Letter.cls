@@ -3,19 +3,21 @@
 \newif\if@singlespace
 \newif\if@onehalfspace
 \newif\if@doublespace
+\newif\if@lite
 \DeclareOption{singlespace}{\@singlespacetrue}
 \DeclareOption{onehalfspace}{\@onehalfspacetrue}
 \DeclareOption{doublespace}{\@doublespacetrue}
+\DeclareOption{lite}{\@litetrue}
 \ExecuteOptions{}
 \ProcessOptions\relax
 \if@singlespace
-  \LoadClass[singlespace]{Report}
+  \LoadClass[singlespace, lite=@lite]{Report}
 \fi
 \if@onehalfspace
-  \LoadClass[onehalfspace]{Report}
+  \LoadClass[onehalfspace, lite=@lite]{Report}
 \fi
 \if@doublespace
-  \LoadClass[doublespace]{Report}
+  \LoadClass[doublespace, lite=@lite]{Report}
 \fi
 
 \pagenumbering{gobble}
