@@ -1,62 +1,114 @@
-\documentclass[onehalfspace]{Report}
+\documentclass[landscape,archE,fontscale=0.32,columns=3]{Poster} % Adjust the font scale/size here
 
-\title{Title}				% Title
-\date{\today}				% Date
-\newcommand{\theauthor}{Author Name}
-\newcommand{\course}{Course Number} % Course number
-\newcommand{\institute}{ Duke University } % Institute
-\newcommand{\versionNumber}{Version number} % version number
+\setlength{\columnsep}{1.5em} % Slightly increase the space between columns
+\setlength{\columnseprule}{0mm} % No horizontal rule between columns
 
-% \addbibresource{./bibliography/References.bib}
+
+\definecolor{DukeBlue}{HTML}{001A57} % Defines the color used for content box headers
+\definecolor{blueish}{HTML}{e8f4f5}
 
 \begin{document}
-\begin{singlespace}
-\input{sections/titlepage}
 
-\tableofcontents
-\end{singlespace}
+\begin{poster}
+{
+headerborder=closed, % Adds a border around the header of content boxes
+colspacing=1em, % Column spacing
+background = shadeTB,
+bgColorOne=white, % Background color for the gradient on the left side of the poster
+bgColorTwo=blueish, % Background color for the gradient on the right side of the poster
+borderColor=DukeBlue, % Border color
+headerColorOne=DukeBlue, % Background color for the header in the content boxes (left side)
+headerColorTwo=white, % Background color for the header in the content boxes (right side)
+headerFontColor=white, % Text color for the header text in the content boxes
+boxColorOne=white, % Background color of the content boxes
+textborder=rectangle, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+eyecatcher=true, % Set to false for ignoring the left logo in the title and move the title left
+headerheight=0.2\textheight, % Height of the header
+%headershape=roundedright, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+headerfont=\Large\bf\textsc, % Large, bold and sans serif font in the headers of content boxes
+textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
+linewidth=1pt, % Width of the border lines around content boxes
+columns = 3,
+}
+%-------------------------------------------------------------------------------
+%	TITLE SECTION
+%-------------------------------------------------------------------------------
+%
+{\includegraphics[height=15em]{images/UGAlogo.eps}} % First university/lab logo on the left
+{\fontsize{32}{38.4}\selectfont Thermal Management and Design of High Heat\\ Small Satellite Payloads \vspace{0.5em}} % Poster title
+{\textsc{Casper Versteeg$^\star$ and David L. Cotten$^\dagger$, PhD \\
+\textit{Small Satellite Research Laboratory, The University of Georgia, Athens, Georgia, 30602}}\\ % Author names and institution
+$^\star$\texttt{\href{mailto:casper.versteeg@outlook.com}{casper.versteeg@outlook.com}}, $^\dagger$\texttt{\href{mailto:dcotte1@uga.edu}{dcotte1@uga.edu}}}
+ % Second university/lab logo on the right
+{\includegraphics[height=16em]{images/imageplaceholder.png}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{sections/revisions}
+%-------------------------------------------------------------------------------
+%	INTRODUCTION
+%-------------------------------------------------------------------------------
 
-\input{sections/abstract}
+\headerbox{Overview}{name=overview,column=0,row=0}{
+\vspace{-0.5in}
+\begin{figure}[H]
+\hfill \includegraphics[height = 18px]{images/SmallSatLogo.png}
+\end{figure}\vspace{-0.15in}
+The size and mass constraints on small satellites provide a serious challenge for efficient heat dissipation from electronics. Incorporating thermal straps, or more sophisticated hardware, can put serious strain on mass budgets, if the placement of such devices is even feasible. The ability to use existing structures in small satellites, such as payload housings, can be an attractive alternative to provide thermal mass for integrated electronics. With appropriate materials and surface treatment, using an existing payload housing is shown to be a viable solution to dissipating heat from high-power components.
+%\vspace{1em} % When there are two boxes, some whitespace may need to be added if the one on the right has more content
+}
 
-\pagebreak
-\input{sections/introduction/introduction}
+\headerbox{Payload}{name=payload,column=0,below=overview}{
+The Multiview On-board Computational Imager (MOCI) uses an Nvidia Jetson TX2 GPU for on-board processing, which has a peak power draw of about 7 Watts, with a nominal power draw of around 3.5 Watts, determined through testing and benchmarking. Because radiation is a relatively slow mode of heat transfer, it can be difficult to dissipate high heat loads mechanically. Therefore, the design of the GPU's heat management system involves using the mounting structure of the optical payload as a heat sink, and an interface between the GPU and the primary structural frame. Making use of existing structures in the satellite aims to limit taxing the mass or power budgets.
 
-\begin{definition}{lenghts}{len}
-\lipsum[1]
-\end{definition}
+%\vspace{0.4em}
+}
 
-\begin{theorem}{Pythagorean Theorem}{pyth}
-\label{pythagorean}
-This is a theorem about right triangles and can be summarised in the next
-equation
-\[ x^2 + y^2 = z^2 \]
-\tcblower
- To prove it by contradiction try and assume that the statement is false, proceed from there and at some point you will arrive to a contradiction. Hence \[ a^2 = b^2 + c^2. \]%
-\end{theorem}
+\headerbox{Simulation}{name=ansys,column=0,below=payload}{
+Finite element analysis was used extensively to prove the design of the payload, both for structural integrity during launch, and as a thermal management system. ANSYS was used for initial simulations, due to its ability to run different iterations quickly. At the end the design process, the payload was also analyzed using Thermal Desktop, to simulate dynamic orbit heating and assess what a day in the life would look like, thermally.
+}
 
-\begin{example}{}{}
-\lipsum[1]
-\end{example}
+\headerbox{ANSYS~Results}{name = ansys, column = 1, row = 0}{
+Initial benchmarking simulations were performed in ANSYS with interface temperatures determined from preliminary one- and six-node analyses. The ambient temperature for this analysis is set to $10^\circ \mathrm{C}$; the approximate interface temperature of the frame in eclipse at the time the payload would be turned on.
 
-\begin{exercise}{}{}
-  \lipsum[2]
-\end{exercise}
+The model used in this analysis contained just under 900,000 elements. ANSYS makes these types of analysis easy to perform with high accuracy. This makes them ideal for use during the design process, as the design can be evaluated frequently, providing feelback to the designer on how the design might be improved.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-\section*{Appendices}
-\addcontentsline{toc}{section}{Appendices}
+Figure 2(a) shows the results obtained from the initial analysis model in ANSYS. This analysis uses the maximum power draw of 7 Watts on the GPU, assuming $0\%$ processor efficiency, so all power is directly converted to heat to model a worst case scenario. The model predicts a maximum temperature around $51^\circ \mathrm{C}$ (cross section shown in Figure 2(b)), which is corrected by $11^\circ \mathrm{C}$ to bring them within a 2-$\sigma$ confidence interval. This puts the maximum predicted temperature of the GPU around $62^\circ \mathrm{C}$, which is within the operating temperature range of $-25$ to $80^\circ \mathrm{C}$.
+}
 
-\begin{appendices}
+\headerbox{Thermal~Desktop~Results}{name=TD,column=1,below=ansys}{
+\vspace{-0.5in}
+\begin{figure}[H]
+\hfill \includegraphics[height = 18px]{images/SmallSatLogo.png}
+\end{figure}\vspace{-0.15in}
+To capture the full dynamic behavior of the satellite, the payload design was also simulated in Thermal Desktop. While all components besides the payload are hidden in the figure, they are fully modelled. The dynamic temperature behavior will include a study of temperature over various beta angles seen by the satellite.
 
-\input{sections/appendix/math_prelims}
+The analysis produces a similar temperature gradient as the ANSYS simulation, as shown in Figure 3. The complete result set from this analysis consists of temperature and beta-angle data for each node in the model. To determine whether the temperature of the GPU and various payload systems remain within their operating temperatures, the maximum temperature over time is plotted against the beta-angle set evaluated.
+\vspace{0.3em}
+}
 
-\end{appendices}
+\headerbox{}{name = TD, column=2,row = 0,boxheaderheight = 1px}{
 
-% \addcontentsline{toc}{chapter}{Bibliography} %adds Bibliography to your table of contents
-% \printbibliography
+
+
+The data obtained from the analysis is again corrected by $11^\circ \mathrm{C}$, as shown by the black, dotted lines in Figure 4. The payload generally runs at a lower temperature than the ANSYS model. While their heat load is 7 Watts in both cases, the GPU does not reach steady-state in the Thermal Desktop model, as it is only drawing power for 15 minutes in the middle of eclipse.
+
+
+\vspace{0.8em}
+}
+
+
+\headerbox{Future~Research}{name=future,column=2,below=TD}{
+\vspace{-0.5in}
+\begin{figure}[H]
+\hfill \includegraphics[height = 18px]{images/SmallSatLogo.png}
+\end{figure}\vspace{-0.15in}
+
+The optical performance of the payload under temperature fluctuations remains an area of concern. While the best course of action would be to thermally isolate the optics, which would keep the optical train at nominal distances by mitigating thermal expansion, this would also inhibit the optics from disspiating heat. Performing STOP analyses will be part of future work and acceptance testing.
+\vspace{0.8em}
+}
+
+\headerbox{}{name=foottext, column=0, span=3, above=bottom, headerborder=none, boxheaderheight=0pt, textborder = none, boxshade=none}{
+\noindent \includegraphics[height = 16px, trim={0 8cm 0 0},clip]{images/unp_logo3.png}
+This research was funded by the University Nanosatellite Program UNP-9. For more information, please visit \texttt{http://smallsat.uga.edu}.
+}
+\end{poster}
 
 \end{document}

@@ -31,8 +31,8 @@
   \doublespacing
 \fi
 
-\RequirePackage[pdftex, pdfusetitle, plainpages=false,
-				letterpaper, bookmarks, bookmarksnumbered,
-				colorlinks, linkcolor=black, citecolor=black,
-	         filecolor=black, urlcolor=black]
-				{hyperref}
+% \RequirePackage[pdftex, pdfusetitle, plainpages=false,
+% 				letterpaper, bookmarks, bookmarksnumbered,
+% 				colorlinks, linkcolor=black, citecolor=black,
+% 	         filecolor=black, urlcolor=black]
+% 				{hyperref}
