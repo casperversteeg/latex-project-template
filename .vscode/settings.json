@@ -1,0 +1,182 @@
+{
+    "python.terminal.executeInFileDir": true,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\g++.exe",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "DotJoshJohnson.xml"
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
+    },
+    "files.exclude": {
+        "**/.git": false
+    },
+    "editor.largeFileOptimizations": false,
+    "editor.rulers": [
+        {
+            "column": 88,
+            "color": "#00000050"
+        },
+        100, // <- a ruler in the default color or as customized (with "editorRuler.foreground") at column 100
+        // {
+        //     "column": 120,
+        //     "color": "#ff0000"
+        // },
+    ],
+    "evenBetterToml.formatter.allowedBlankLines": 4,
+    "evenBetterToml.formatter.indentTables": true,
+    "evenBetterToml.formatter.indentEntries": true,
+    "evenBetterToml.formatter.columnWidth": 180,
+    "evenBetterToml.formatter.arrayAutoCollapse": true,
+    "evenBetterToml.formatter.arrayAutoExpand": true,
+    "evenBetterToml.formatter.compactArrays": true,
+    "black-formatter.args": [
+        "--line-length=100"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "[latex]": {
+        "editor.defaultFormatter": "mathematic.vscode-latex"
+    },
+    "make-task-provider.windows.makeExecutable": "C:\\Program Files (x86)\\GnuWin32\\bin\\make.exe",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.bibDirs": [
+        "bibliography/*"
+    ],
+    "latex-workshop.latex.clean.subfolder.enabled": false,
+    "latex-workshop.latex.rootFile.useSubFile": false,
+    "latex-workshop.latex.outDir": "%DIR%",
+    "latex-workshop.latex.texDirs": [
+        "packages/",
+        "sections/",
+        "sections/*/",
+        "sections/*/*/",
+        "sections/*/*/*/"
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex (once)",
+            "tools": [
+                "pdflatex",
+            ]
+        },
+        {
+            "name": "pdflatex (3x)",
+            "tools": [
+                "pdflatex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "latexmk (latexmkrc)",
+            "tools": [
+                "latexmk_rconly"
+            ]
+        },
+        {
+            "name": "latexmk (lualatex)",
+            "tools": [
+                "lualatexmk"
+            ]
+        },
+        {
+            "name": "latexmk (xelatex)",
+            "tools": [
+                "xelatexmk"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex * 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "Compile Rnw files",
+            "tools": [
+                "rnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "Compile Jnw files",
+            "tools": [
+                "jnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "Compile Pnw files",
+            "tools": [
+                "pnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "tectonic",
+            "tools": [
+                "tectonic"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-interaction=nonstopmode",
+                "-shell-escape",
+                "-aux-directory=build",
+                "-synctex=1",
+                "%DOC%"
+            ],
+            "env": {
+                "TEXINPUTS": "./packages"
+            }
+        },
+        {
+            "name": "bibtex",
+            "command": "biber",
+            "args": [
+                "--output-directory=build",
+                "%DOCFILE%"
+            ],
+            "env": {
+                "TEXINPUTS": "./packages"
+            }
+        }
+    ],
+    "latex-workshop.bibtex-format.tab": "tab",
+    "latex-workshop.intellisense.citation.backend": "biblatex"
+}

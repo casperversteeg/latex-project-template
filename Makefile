@@ -15,7 +15,7 @@
 #		action
 
 # Defining path variables
-MAIN=simplex
+MAIN=TechnicalVolume
 BUILD_DIR=build
 PACK_DIR=packages
 BIB_DIR=bibliography

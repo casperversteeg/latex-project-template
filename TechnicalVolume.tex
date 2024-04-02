@@ -1,0 +1,59 @@
+\documentclass[singlespace, lite]{TechnicalVolume}
+
+\title{Title}				% Title
+\date{\today}				% Date
+\newcommand{\CMtitle}{CM-title} % CM title
+
+\addbibresource{./bibliography/References.bib}
+
+\begin{document}
+\begin{singlespace}
+\input{sections/technical-volume-titlepage}
+
+\tableofcontents
+\end{singlespace}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\input{sections/abstract}
+
+\input{sections/introduction/introduction}
+
+\begin{definition}{lenghts}{len}
+\lipsum[1]
+\end{definition}
+
+\begin{theorem}{Pythagorean Theorem}{pyth}
+\label{pythagorean}
+This is a theorem about right triangles and can be summarised in the next
+equation
+\[ x^2 + y^2 = z^2 \]
+\tcblower
+ To prove it by contradiction try and assume that the statement is false, proceed from there and at some point you will arrive to a contradiction. Hence \[ a^2 = b^2 + c^2. \]%
+\end{theorem}
+
+\begin{example}{}{}
+\lipsum[1]
+\end{example}
+
+\begin{exercise}{}{}
+  \lipsum[2]
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+
+\begin{appendices}
+
+\input{sections/appendix/math_prelims}
+
+\end{appendices}
+
+\addcontentsline{toc}{section}{Bibliography} %adds Bibliography to your table of contents
+\nocite{*}
+\printbibliography[title={Bibliography}]
+
+\end{document}
